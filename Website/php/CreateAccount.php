@@ -19,32 +19,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $account_emailAddress = validateInput($_POST["email"]);
     $account_username = validateInput($_POST["username"]);
     $account_password = validateInput($_POST["password"]);
-
 }
 
 
 
 // Connect to SQL table
-$conn = mysqli_connect($server_server,$server_username,$server_password);
+$conn = mysqli_connect($server_server,$server_username,$server_password,$server_database);
 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
-echo "Connected successfully";
-
-// Add the entry into the table
-$sql = "INSERT INTO users(email, username, password)
-VALUES ($account_emailAddress,$account_username, $account_password)";
-
-
-if (mysqli_query($conn, $sql)) {
-    echo "New record created successfully";
-} else {
-    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+// check to make sure that email does not exist in the server already
+$sql = "SELECT * FROM users WHERE email='$account_emailAddress'"; 
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+    // Email Address is already registered
+    echo "Email Address Already Registered";
+    return;
 }
+else { 
+    // Add the entry into the table only if the email address is not already found
+    $sql = "INSERT INTO users(email, username, password)
+    VALUES ('$account_emailAddress','$account_username', '$account_password')";
 
 
-
+    if (mysqli_query($conn, $sql)) {
+        echo "New record created successfully";
+        } 
+    else  
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+}
+        
 
 
 function validateInput($input) {
