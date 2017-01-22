@@ -2,6 +2,8 @@
 // script for having a user create an account
 // fires when the user clicks 'submit'
 
+include 'Tools.php';
+
 // Blank Variables 
 $account_emailAddress = "";
 $account_username = "";
@@ -16,9 +18,9 @@ $server_database = "mydb";
 
 // Checks for dangerous characters and sets the values for the variables
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $account_emailAddress = validateInput($_POST["email"]);
-    $account_username = validateInput($_POST["username"]);
-    $account_password = validateInput($_POST["password"]);
+    $account_emailAddress = sanitizeInput($_POST["email"]);
+    $account_username = sanitizeInput($_POST["username"]);
+    $account_password = sanitizeInput($_POST["password"]);
 }
 
 
@@ -32,6 +34,8 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // Email Address is already registered
     echo "Email Address Already Registered";
+
+    // MUST SERVE UP BETTER PAGE
     return;
 }
 else { 
@@ -47,21 +51,5 @@ else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
         
-
-
-function validateInput($input) {
-    // Removes dangerous characters
-    $input = trim($input);
-    $input = stripslashes($input);
-    $input = htmlspecialchars($input);
-
-    return $input;
-}
-
-
-
-
-
-
 ?>
 
