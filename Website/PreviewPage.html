@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+
+<!-- IFT 401 Group Project - Spring B -->
+
+<html lang="en">
+
+	<head>
+		
+		<title>Preview Page</title>
+		
+		<meta http-equiv="content-type"
+			content="text/html; charset=UTF-8" />
+		<meta name="description"
+			content="Website to upload pictures to raise money for charity" />
+		<meta name="keywords"
+			content="Art, Photography, Charity" />
+		<meta name="author"
+			content="Victor Benavidez" />
+			
+		<link rel="stylesheet" media="only screen and (max-width: 480px)" href="mobile.css" />
+
+		<link rel="stylesheet" media="only screen and (max-device-width: 568px)" href="mobile.css" />
+
+		<link rel="stylesheet" media="only screen and (min-width: 481px) and (max-width: 960px)" href="tablet.css" />
+
+		<link rel="stylesheet" media="only screen and (min-device-width: 768px) and (max-device-width: 1024px)" href="tablet.css" />
+
+		<link rel="stylesheet" media="only screen and (min-width: 961px)" href="desktop.css" />
+
+		<meta name="viewport" content="initial-scale=1">
+		
+	</head>
+	
+	<body>
+	
+	<!-- Wrapper Begin -->
+	<div id="wrapper">
+	
+	<!-- Login Begin -->
+			<div class="pull-right">
+				<br />
+				<a href="login.html">
+					<button type="button" class="btn btn-primary">Login</button>
+				</a>
+				<a href="signup.html">
+					<button type="button" class="btn btn-primary">Sign Up</button>
+				</a>
+			</div>
+
+			<br />
+			<br />
+
+			<hr />
+	<!-- Login End -->
+	
+	<!-- Banner Begin -->
+	<div id="banner">
+		
+	</div>
+	<!-- Banner End -->
+	
+	<!-- Navigation Bar Begin -->
+			<nav class="navbar navbar-default">
+				<div class="container-fluid">
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="Main.html">Home</a></li>
+      					<li><a href="#">Page 1</a></li>
+      					<li><a href="#">Page 2</a></li>
+      					<li><a href="#">Page 3</a></li>
+    				</ul>
+  				</div>
+			</nav>
+
+			<hr />
+	<!-- Navigation Bar End -->
+	
+	
+	<!-- Picture Begin-->
+	<div id="Picture">
+	
+				<div class="col-md-3">
+					<h3 class="text-center" for="anime"> Anime </h3>
+					<a title="Anime" href="#">
+						<img class="thumbnail img-responsive" src="images/categories/AnimePlaceholder.png" id="anime">
+					</a>
+				</div>	
+				
+		<!-- Description End -->
+		<div id="description">
+				
+			<ul class="PreviewDesc">			
+		
+				<li>This is a picture by ______</li>
+				<li>A photo of the ______</li>
+				<li>Taken on _______</li>
+				<li>Details of the photo</li>
+				<li>Additional points</li>
+				
+			</ul>
+				
+		</div>
+		<!-- Description End -->
+	
+	</div>
+	<!-- Picture End -->
+	
+	<!-- Form Begins -->
+	<div id="purchaseForm">
+	
+		<p class="sectionHeading purchaseFormHeading">Choose Your Price</p>
+		<p class="sectionHeading purchaseFormHeading">(X Dollar Minimum)</p>
+				
+		<form class="contactForm" method="post" name="purchaseForm" action="">
+			
+		<div class="textInput">
+			
+			<label class="amtInput" for="dollarAmt"></label>
+			<input id="dollarAmt" type="text" name="dollarAmt" required="required" class="inputBox"/>
+			<br />
+
+			<label class="sliderBar pullLeft" for="percent">Artist</label>
+			<label class="sliderBar pullRight" for="percent">Charity</label>
+			
+			<br />
+			
+			<input id="percent" type="range" name="percent" value="50" min="0" max="100">
+			<br />			
+			
+		</div>
+			
+		<div id="buttonRestrictor">
+			
+			<input type="submit" value="Purchase" onClick="rotateForm()" />
+			
+		</div>
+			
+		</form>
+		
+	</div>
+	<!-- Contact Form End -->	
+	</div>
+	<!-- Form Ends -->
+
+	
+<!-- copywrite/contact/about stuff down here -->
+			<div>
+				<h6 class="pull-right">© 2017
+			</div>	
+			
+	</div>
+	<!-- Wrapper End -->
+	
+	</body>
+	
+</html>
