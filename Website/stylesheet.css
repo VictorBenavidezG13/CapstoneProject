@@ -4,3 +4,11 @@
 .login {
     max-width: 360px;
 }
+#percentage {
+    text-align: center;
+    border: 0px;
+    width: 30px;
+}
+.col-center {
+    margin:0 auto;
+}
