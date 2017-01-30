@@ -10,10 +10,10 @@ $account_username = "";
 $account_password = "";
 
 // Server Variables
-$server_username = "root";
-$server_password = "";
-$server_server = "127.0.0.1";
-$server_database = "mydb";
+$server_username = "capstone_add";
+$server_password = "Arizona";
+$server_server = "localhost";
+$server_database = "capstone_mydb";
 
 
 // Checks for dangerous characters and sets the values for the variables
@@ -46,6 +46,8 @@ else {
 
     if (mysqli_query($conn, $sql)) {
         echo "New record created successfully";
+        header("Location: profile.html");
+
         } 
     else  
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
